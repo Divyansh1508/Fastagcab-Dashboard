@@ -1,30 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import Layout from './components/Layout';
-import Login from './pages/Login';
-import Unauthorized from './pages/Unauthorized';
-import Dashboard from './pages/Dashboard';
-import Scheme from './pages/Scheme';
-import Product from './pages/Product';
-import Report from './pages/Report';
-import UserExecutive from './pages/UserExecutive';
-import NewsUpdate from './pages/NewsUpdate';
-import GiftPurchase from './pages/GiftPurchase';
-import CreateAppUser from './pages/CreateAppUser';
-import AddBanner from './pages/AddBanner';
-import GenerateRedeem from './pages/GenerateRedeem';
-import RedeemRequest from './pages/RedeemRequest';
-import Others from './pages/Others';
-import Settings from './pages/Settings';
-import FAQ from './pages/FAQ';
-import TermsConditions from './pages/TermsConditions';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Layout from "./components/Layout";
+import Login from "./pages/Login";
+import Unauthorized from "./pages/Unauthorized";
+import Dashboard from "./pages/Dashboard";
+import Scheme from "./pages/Scheme";
+import Product from "./pages/Product";
+import Report from "./pages/Report";
+import UserExecutive from "./pages/UserExecutive";
+import NewsUpdate from "./pages/NewsUpdate";
+import GiftPurchase from "./pages/GiftPurchase";
+import CreateAppUser from "./pages/CreateAppUser";
+import AddBanner from "./pages/AddBanner";
+import GenerateRedeem from "./pages/GenerateRedeem";
+import RedeemRequest from "./pages/RedeemRequest";
+import Others from "./pages/Others";
+import Settings from "./pages/Settings";
+import FAQ from "./pages/FAQ";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Set up axios base URL
-import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:5000';
+import axios from "axios";
+import { API_CONFIG } from "./config/api";
+
+// Configure axios with the API base URL from environment variables
+axios.defaults.baseURL = API_CONFIG.baseURL;
 
 function App() {
   return (
@@ -34,7 +42,7 @@ function App() {
           {/* Public routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
-          
+
           {/* Protected routes - Admin only */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route
