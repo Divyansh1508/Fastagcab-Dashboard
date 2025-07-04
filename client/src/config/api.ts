@@ -8,7 +8,7 @@ const getApiBaseUrl = (): string => {
 
   // For development: use localhost unless explicitly overridden
   if (isDev) {
-    return envApiUrl || "http://localhost:5000";
+    return envApiUrl || "http://localhost:5001";
   }
 
   // For production: use environment variable or production server
